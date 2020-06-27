@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Album";
+    var i = 0;
+    var path = ViewBag.path;
+}
+@using WebsiteUploadAnh.Models;
+<div class="container-fluid">
+    <div class="row" style="height:80px;"></div>
+    <div class="row" style="width:100%">
+        @foreach (var it in Model)
+        {
+        <div class="col-md-3" style="margin:10px 0;">
+            <img src="../Content/Images/halongbay/@path[i]" style="width:100%; height:200px" />
+           
+            <p style="text-align:center">
+            <a class="btn btn-default" href="/Home/DetailAlbum/@it.AlbumID">
+                @it.AlbumName
+                </a></p>
+        </div>
+            i++;
+        }
+     
+    </div>
+</div>
+

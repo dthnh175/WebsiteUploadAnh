@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Share";
+    var album = ViewBag.album;
+    var image = ViewBag.image;
+    var path = ViewBag.path;
+    int i = 0;
+}
+
+@using WebsiteUploadAnh.Models;
+<div class="container-fluid">
+    <div class="row" style="height:80px;"></div>
+    <div class="">
+        @foreach (var it in album)
+        {
+            <div class="row" style="margin:10px;">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-2" style="padding:0">
+                    <div style=" border-bottom: 2px solid #3C4858;width:100% ;padding:10px">
+
+                        <img src="~/Content/Images/halongbay/@path[i]" style="width:80%;border-radius:10px;height:100px" />
+                    </div>
+                </div>
+                <div class="col-lg-6" style="border-bottom: 2px solid #3C4858; ">
+                    <div style="padding: 40px 2px;font-weight:500">
+                        <a  href="/Home/DetailAlbum/@it.AlbumID">
+                            @it.AlbumName
+                        </a>
+                    </div> 
+
+                </div>
+            </div>
+            i++;
+        }
+    </div>
+    <div class="" style="width:100%">
+        @foreach (var it in image)
+        {
+        <div class="row" style="margin:10px;">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-2" style="padding:0">
+                <div style=" border-bottom: 2px solid #3C4858;width:100% ;padding:10px">
+                    <img src="~/Content/Images/halongbay/@it.ImageUrl" style="width:80%;border-radius:10px;height:100px" />
+                </div>
+            </div>
+            <div class="col-lg-6" style="border-bottom: 2px solid #3C4858; ">
+                <div style="padding: 40px 2px; font-weight:500">
+                    @it.Imagedate
+                </div>
+
+            </div>
+        </div>
+        }
+    </div>
+
+</div>
+

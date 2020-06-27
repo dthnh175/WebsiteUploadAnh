@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "DetailAlbum";
+    var album = ViewBag.album;
+}
+@using WebsiteUploadAnh.Models;
+<div class="container-fluid">
+    <div class="row" style="height:80px;"></div>
+    <div>
+        <h2>@album.AlbumName</h2>
+        <h4>@album.AlbumCaption</h4>
+        <div class="row">
+            @foreach (var it in Model)
+            {
+                <div class="col-md-3" style=" margin: 10px 0">
+                    <img src="~/Content/Images/halongbay/@it.ImageUrl" style="width:100%;" />
+                    <div style="text-align:center; font-weight:500"> @it.Imagedate</div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
