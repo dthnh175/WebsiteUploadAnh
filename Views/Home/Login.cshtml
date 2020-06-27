@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Đăng nhập</h2>
+
+
+<form action="/User/Login" method="post">
+    @if (@ViewData["FailureMessage"] != null)
+    {
+        <p>@ViewData["FailureMessage"]</p>
+    }
+    <p>
+        <label>Tên đăng nhập</label>
+        <input type="text" id="user" name="Username" placeholder="Tên đăng nhập" />
+    </p>
+    <p>
+        <label for="pass">Mật khẩu</label>
+        <input type="password" id="pass" name="Passwords" placeholder="Mật khẩu" />
+    </p>
+    <p>
+        <input type="submit" value="Đăng nhập" />
+    </p>
+</form>
+
+<p>Chưa có tài khoản?</p>
+<a href="/Home/Register">Đăng kí</a>

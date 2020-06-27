@@ -26,5 +26,16 @@ namespace WebsiteUploadAnh.Controllers
 
             return View();
         }
+
+        public ActionResult Login(string FailureMessage)
+        {
+            ViewData["FailureMessage"] = FailureMessage;
+            return View();
+        }
+
+        public ActionResult Register()
+        {
+            return View();
+        }
     }
 }
