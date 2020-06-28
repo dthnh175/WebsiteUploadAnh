@@ -31,5 +31,30 @@ namespace WebsiteUploadAnh.Controllers
             // Đăng nhập không thành công
             return RedirectToAction("Login", "Home", new { FailureMessage = "Đăng nhập không thành công" });
         }
+
+        [HttpPost]
+        public ActionResult Register(USER new_user_info)
+        {
+            MyDbContext db = new MyDbContext();
+
+            // check if email existed
+            var user = db.USERS.SingleOrDefault(x => x.UserEmail == new_user_info.UserEmail);
+            if (user != null)
+            {
+                return RedirectToAction("Register", "Home");
+            }
+
+            // check if username existed
+            user = db.USERS.SingleOrDefault(x => x.UserName == new_user_info.UserName);
+            if (user != null)
+            {
+                return RedirectToAction("Register", "Home");
+            }
+
+            user = db.USERS.Add(new_user_info);
+            db.SaveChanges();
+            Session["User"] = user;
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
